@@ -1,681 +1,1200 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA — Преміум Масажний Салон</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="index-salon.css" >
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURA — Преміум Масажний Салон</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index-salon.css" />
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+      <div class="slide slide-1 active" id="s0"></div>
+      <div class="slide slide-2" id="s1"></div>
+      <div class="slide slide-3" id="s2"></div>
+      <div class="overlay"></div>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="slide slide-1 active" id="s0"></div>
-  <div class="slide slide-2"        id="s1"></div>
-  <div class="slide slide-3"        id="s2"></div>
-  <div class="overlay"></div>
-
-  <div class="particles">
-    <div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div>
-    <div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div>
-  </div>
-
-  <!-- NAV -->
-  <nav>
-    <div class="logo">
-      <div class="logo-icon"></div>
-      AURA
-    </div>
-    <ul class="nav-menu">
-      <li><a href="#services" onclick="smoothTo('services')">Послуги</a></li>
-      <li><a href="#masters" onclick="smoothTo('masters')">Майстри</a></li>
-      <li><a href="#services" onclick="smoothTo('services')">Ціни</a></li>
-      <li><a href="#contacts" onclick="smoothTo('contacts')">Контакти</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Меню" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" onclick="toggleMenu()">&#10005;</button>
-    <a href="#services" onclick="smoothTo('services');toggleMenu()">Послуги</a>
-    <a href="#masters"  onclick="smoothTo('masters');toggleMenu()">Майстри</a>
-    <a href="#services" onclick="smoothTo('services');toggleMenu()">Ціни</a>
-    <a href="#contacts" onclick="smoothTo('contacts');toggleMenu()">Контакти</a>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="hero-content">
-    <div class="tag">Преміум Масажний Салон</div>
-
-    <h1 class="title">
-      Розкіш<br>
-      <em>спокою</em><br>
-      та відновлення
-    </h1>
-
-    <p class="subtitle">
-      Простір, де кожна деталь створена для вас. Авторські масажні ритуали, 
-      органічні олії та руки майстрів з багаторічним досвідом — щоб ви 
-      відчули себе справді оновленим.
-    </p>
-
-    <div class="sep" id="contacts">
-      <div class="sep-line"></div>
-      <span class="sep-diamond">✦ ✦ ✦</span>
-      <div class="sep-line" style="background:linear-gradient(90deg,var(--gold),transparent)"></div>
-    </div>
-
-    <button class="btn-book" onclick="openModal()">
-      <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-      <span>Забронювати сеанс</span>
-    </button>
-  </div>
-
-  <!-- PROGRESS BARS -->
-  <div class="progress-bar-wrap" id="pbs">
-    <div class="pb active" id="pb0"><div class="pb-fill"></div></div>
-    <div class="pb"        id="pb1"><div class="pb-fill"></div></div>
-    <div class="pb"        id="pb2"><div class="pb-fill"></div></div>
-  </div>
-</section>
-
-<!-- ══ HOURS ══ -->
-<div class="hours-band" >
-  <div class="h-item">
-    <div class="h-ico">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 13H11v-6l5.2 3.1-.7 1.2-4-2.4V15z"/></svg>
-    </div>
-    <div>
-      <div class="h-lbl">Понеділок — П'ятниця</div>
-      <div class="h-val">09:00 — 21:00</div>
-    </div>
-  </div>
-  <div class="h-item">
-    <div class="h-ico">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 13H11v-6l5.2 3.1-.7 1.2-4-2.4V15z"/></svg>
-    </div>
-    <div>
-      <div class="h-lbl">Субота — Неділя</div>
-      <div class="h-val">10:00 — 20:00</div>
-    </div>
-  </div>
-  <div class="h-item">
-    <div class="h-ico">
-      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1l-2.2 2.2z"/></svg>
-    </div>
-    <div>
-      <div class="h-lbl">Запис на сеанс</div>
-      <div class="h-val">+38 (099) 123-45-67</div>
-    </div>
-  </div>
-  <div class="h-item" style="cursor:none;" onclick="openMap()">
-    <div class="h-ico">
-      <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
-    </div>
-    <div>
-      <div class="h-lbl">Адреса салону</div>
-      <div class="h-val" style="text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(200,151,58,.35);">вул. Золотоворітська, 5</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ SERVICES ══ -->
-<div style="background: var(--black); border-top: 1px solid rgba(200,151,58,.10);">
-  <div id="services" style="padding: 4rem 5rem 0; max-width: 1400px; margin: 0 auto; text-align: center;">
-    <div class="section-eyebrow" >Що ми пропонуємо</div>
-    <h2 class="section-title">Послуги</h2>
-  </div>
-
-  <div class="services" >
-  <div class="srv" onclick="openService(0)" style="cursor:none;">
-    <div class="srv-n">01</div>
-    <div class="srv-title">Класичний релакс</div>
-    <span class="srv-dur">60 / 90 хв</span>
-    <p class="srv-desc">Глибоке розслаблення кожного м'яза. Ароматичні олії та плавні техніки знімають напругу накопиченого стресу й повертають легкість тілу.</p>
-    <span class="srv-price-preview">від 800 грн</span>
-  </div>
-  <div class="srv" onclick="openService(1)" style="cursor:none;">
-    <div class="srv-n">02</div>
-    <div class="srv-title">Тайський ритуал</div>
-    <span class="srv-dur">90 / 120 хв</span>
-    <p class="srv-desc">Стародавня техніка, що поєднує акупресуру та розтяжку. Відновлює енергетичний баланс і дарує відчуття абсолютної свободи.</p>
-    <span class="srv-price-preview">від 1200 грн</span>
-  </div>
-  <div class="srv" onclick="openService(2)" style="cursor:none;">
-    <div class="srv-n">03</div>
-    <div class="srv-title">Масаж гарячим камінням</div>
-    <span class="srv-dur">75 / 105 хв</span>
-    <p class="srv-desc">Базальтові камені, прогріті до ідеальної температури, проникають у найглибші шари м'язів. Тепло зцілює, а душа знаходить спокій.</p>
-    <span class="srv-price-preview">від 1400 грн</span>
-  </div>
-</div>
-</div><!-- /services-wrapper -->
-
-<!-- ══ SERVICE PANEL ══ -->
-<div class="srv-panel-bg" id="srvPanelBg" onclick="handlePanelBgClick(event)">
-  <div class="srv-panel" id="srvPanel">
-    <button class="sp-close" onclick="closeService()">✕</button>
-
-    <!-- GALLERY -->
-    <div class="sp-gallery" id="spGallery">
-      <div class="sp-img active" id="spImg0"></div>
-      <div class="sp-img"       id="spImg1"></div>
-      <div class="sp-img"       id="spImg2"></div>
-      <button class="sp-nav-btn sp-nav-prev" onclick="spPrev()">&#8592;</button>
-      <button class="sp-nav-btn sp-nav-next" onclick="spNext()">&#8594;</button>
-      <div class="sp-thumbs" id="spThumbs"></div>
-    </div>
-
-    <!-- INFO -->
-    <div class="sp-info">
-      <div class="sp-tag" id="spTag"></div>
-      <p class="sp-title" id="spTitle"></p>
-      <span class="sp-dur-badge" id="spDur"></span>
-      <p class="sp-desc" id="spDesc"></p>
-      <div class="sp-includes">
-        <div class="sp-includes-title">Що включено</div>
-        <div id="spIncludes"></div>
+      <div class="particles">
+        <div class="p"></div>
+        <div class="p"></div>
+        <div class="p"></div>
+        <div class="p"></div>
+        <div class="p"></div>
+        <div class="p"></div>
+        <div class="p"></div>
+        <div class="p"></div>
       </div>
-      <div class="sp-price-row">
-        <span class="sp-price-lbl">Вартість від</span>
-        <span class="sp-price" id="spPrice"></span>
-        <span class="sp-price-sub" id="spPriceSub"></span>
-      </div>
-      <button class="btn-book-panel" onclick="openModalFromPanel()">
-        <svg viewBox="0 0 24 24" width="14" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-        Забронювати сеанс
-      </button>
-    </div>
-  </div>
-</div>
 
-<!-- ══ MASTERS ══ -->
-<section class="masters-section" >
-  <div class="section-header">
-    <div class="section-eyebrow">Наша команда</div>
-    <h2 class="section-title">Майстри салону</h2>
-  </div>
-
-  <div class="carousel-container" id="masters">
-    <button class="nav-arrow left">&#8249;</button>
-    <div class="carousel-track">
-      <div class="card" data-index="0">
-        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=3687&auto=format&fit=crop" alt="Майстер масажу Олена Мороз">
-      </div>
-      <div class="card" data-index="1">
-        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=3870&auto=format&fit=crop" alt="Майстер масажу Дмитро Карпенко">
-      </div>
-      <div class="card" data-index="2">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&auto=format&fit=crop&q=60" alt="Майстер масажу Марія Ткаченко">
-      </div>
-      <div class="card" data-index="3">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&auto=format&fit=crop&q=60" alt="Майстер масажу Олена Кунець">
-      </div>
-      <div class="card" data-index="4">
-        <img src="https://images.unsplash.com/photo-1655249481446-25d575f1c054?w=900&auto=format&fit=crop&q=60" alt="Майстер масажу Світлана Когунь">
-      </div>
-      <div class="card" data-index="5">
-        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=3687&auto=format&fit=crop" alt="Майстер масажу Андрій Бондаренко">
-      </div>
-    </div>
-    <button class="nav-arrow right">&#8250;</button>
-  </div>
-
-  <div class="member-info">
-    <h3 class="member-name" id="memberName">Олена Мороз</h3>
-    <p class="member-role" id="memberRole">Тайський масаж</p>
-  </div>
-
-  <div class="dots" id="carouselDots">
-    <div class="dot active" data-index="0"></div>
-    <div class="dot" data-index="1"></div>
-    <div class="dot" data-index="2"></div>
-    <div class="dot" data-index="3"></div>
-    <div class="dot" data-index="4"></div>
-    <div class="dot" data-index="5"></div>
-  </div>
-</section>
-
-<!-- ══ CERTIFICATES ══ -->
-<section class="certs-section" id="certificates">
-  <div class="section-header">
-    <div class="section-eyebrow">Якість підтверджена</div>
-    <h2 class="section-title">Сертифікати майстрів</h2>
-  </div>
-
-  <div class="certs-grid">
-
-    <div class="cert-card" onclick="openCert(this)">
-      <div class="cert-corner"></div>
-      <img class="cert-img"
-           src="https://masmaster.com.ua/wp-content/uploads/2018/05/Massage-s-new-840.jpg"
-           alt="Сертифікат з тайського масажу — Олена Мороз">
-      <div class="cert-caption">
-        <div class="cert-name">Олена Мороз</div>
-        <div class="cert-sub">Тайський масаж · Бангкок, 2022</div>
-      </div>
-    </div>
-
-    <div class="cert-card" onclick="openCert(this)">
-      <div class="cert-corner"></div>
-      <img class="cert-img"
-           src="https://masaj.sv.net.ua/wp-content/uploads/2019/07/podarunkovij-sertifikat.jpg"
-           alt="Сертифікат з класичного масажу — Дмитро Карпенко">
-      <div class="cert-caption">
-        <div class="cert-name">Дмитро Карпенко</div>
-        <div class="cert-sub">Класичний масаж · Київ, 2021</div>
-      </div>
-    </div>
-
-    <div class="cert-card" onclick="openCert(this)">
-      <div class="cert-corner"></div>
-      <img class="cert-img"
-           src="https://kc.pamu.com.ua/wp-content/uploads/2023/12/%D0%A1%D0%B5%D1%80%D1%82%D0%B8%D1%84%D1%96%D0%BA%D0%B0%D1%82-116-1-745x1024.jpg"
-           alt="Сертифікат з масажу гарячим камінням — Марія Ткаченко">
-      <div class="cert-caption">
-        <div class="cert-name">Марія Ткаченко</div>
-        <div class="cert-sub">Гарячі камені · Відень, 2023</div>
-      </div>
-    </div>
-
-    <div class="cert-card" onclick="openCert(this)">
-      <div class="cert-corner"></div>
-      <img class="cert-img"
-           src="https://minio.kyivcity.gov.ua/kyivcity/imported_content/64d1aae93ca16.jpg"
-           alt="Сертифікат з ароматерапії — Андрій Бондар">
-      <div class="cert-caption">
-        <div class="cert-name">Андрій Бондар</div>
-        <div class="cert-sub">Ароматерапія · Лондон, 2023</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CERTIFICATE ZOOM OVERLAY -->
-<div class="cert-overlay" id="certOverlay" onclick="closeCert()">
-  <button class="cert-overlay-close" onclick="closeCert()">&#10005;</button>
-  <img src="" alt="Сертифікат" id="certZoomImg">
-</div>
-
-<!-- ══ REVIEWS ══ -->
-<section class="reviews-section" id="reviews">
-  <div class="section-header">
-    <div class="section-eyebrow">Думки клієнтів</div>
-    <h2 class="section-title">Відгуки</h2>
-  </div>
-
-  <div class="reviews-slider-wrap">
-    <div class="reviews-track" id="reviewsTrack">
-
-      <!-- REVIEW 1 -->
-      <div class="review-card">
-        <div class="review-stars">
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <!-- NAV -->
+      <nav>
+        <div class="logo">
+          <div class="logo-icon"></div>
+          AURA
         </div>
-        <p class="review-text">Неймовірний досвід! Після тайського масажу від Олени відчула себе наче заново народженою. Напруга, яку накопичувала місяцями, зникла за одну годину. Повернусь обовязково.</p>
-        <div class="review-author">
-          <img class="review-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Відгук клієнтки Юлії">
-          <div class="review-info">
-            <div class="review-name">Юлія Петренко</div>
-            <div class="review-date">Березень 2026</div>
+        <ul class="nav-menu">
+          <li>
+            <a href="#services" onclick="smoothTo('services')">Послуги</a>
+          </li>
+          <li><a href="#masters" onclick="smoothTo('masters')">Майстри</a></li>
+          <li><a href="#services" onclick="smoothTo('services')">Ціни</a></li>
+          <li>
+            <a href="#contacts" onclick="smoothTo('contacts')">Контакти</a>
+          </li>
+        </ul>
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Меню"
+          onclick="toggleMenu()"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMenu()">
+          &#10005;
+        </button>
+        <a
+          href="#services"
+          onclick="
+            smoothTo('services');
+            toggleMenu();
+          "
+          >Послуги</a
+        >
+        <a
+          href="#masters"
+          onclick="
+            smoothTo('masters');
+            toggleMenu();
+          "
+          >Майстри</a
+        >
+        <a
+          href="#services"
+          onclick="
+            smoothTo('services');
+            toggleMenu();
+          "
+          >Ціни</a
+        >
+        <a
+          href="#contacts"
+          onclick="
+            smoothTo('contacts');
+            toggleMenu();
+          "
+          >Контакти</a
+        >
+      </div>
+
+      <!-- CONTENT -->
+      <div class="hero-content">
+        <div class="tag">Преміум Масажний Салон</div>
+
+        <h1 class="title">
+          Розкіш<br />
+          <em>спокою</em><br />
+          та відновлення
+        </h1>
+
+        <p class="subtitle">
+          Простір, де кожна деталь створена для вас. Авторські масажні ритуали,
+          органічні олії та руки майстрів з багаторічним досвідом — щоб ви
+          відчули себе справді оновленим.
+        </p>
+
+        <div class="sep" id="contacts">
+          <div class="sep-line"></div>
+          <span class="sep-diamond">✦ ✦ ✦</span>
+          <div
+            class="sep-line"
+            style="background: linear-gradient(90deg, var(--gold), transparent)"
+          ></div>
+        </div>
+
+        <button class="btn-book" onclick="openModal()">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+            />
+          </svg>
+          <span>Забронювати сеанс</span>
+        </button>
+      </div>
+
+      <!-- PROGRESS BARS -->
+      <div class="progress-bar-wrap" id="pbs">
+        <div class="pb active" id="pb0"><div class="pb-fill"></div></div>
+        <div class="pb" id="pb1"><div class="pb-fill"></div></div>
+        <div class="pb" id="pb2"><div class="pb-fill"></div></div>
+      </div>
+    </section>
+
+    <!-- ══ HOURS ══ -->
+    <div class="hours-band">
+      <div class="h-item">
+        <div class="h-ico">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 13H11v-6l5.2 3.1-.7 1.2-4-2.4V15z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="h-lbl">Понеділок — П'ятниця</div>
+          <div class="h-val">09:00 — 21:00</div>
+        </div>
+      </div>
+      <div class="h-item">
+        <div class="h-ico">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 13H11v-6l5.2 3.1-.7 1.2-4-2.4V15z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="h-lbl">Субота — Неділя</div>
+          <div class="h-val">10:00 — 20:00</div>
+        </div>
+      </div>
+      <div class="h-item">
+        <div class="h-ico">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1l-2.2 2.2z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="h-lbl">Запис на сеанс</div>
+          <div class="h-val">+38 (099) 123-45-67</div>
+        </div>
+      </div>
+      <div class="h-item" style="cursor: none" onclick="openMap()">
+        <div class="h-ico">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="h-lbl">Адреса салону</div>
+          <div
+            class="h-val"
+            style="
+              text-decoration: underline;
+              text-underline-offset: 3px;
+              text-decoration-color: rgba(200, 151, 58, 0.35);
+            "
+          >
+            вул. Золотоворітська, 5
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- REVIEW 2 -->
-      <div class="review-card">
-        <div class="review-stars">
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <!-- ══ SERVICES ══ -->
+    <div
+      style="
+        background: var(--black);
+        border-top: 1px solid rgba(200, 151, 58, 0.1);
+      "
+    >
+      <div
+        id="services"
+        style="
+          padding: 4rem 5rem 0;
+          max-width: 1400px;
+          margin: 0 auto;
+          text-align: center;
+        "
+      >
+        <div class="section-eyebrow">Що ми пропонуємо</div>
+        <h2 class="section-title">Послуги</h2>
+      </div>
+
+      <div class="services">
+        <div class="srv" onclick="openService(0)" style="cursor: none">
+          <div class="srv-n">01</div>
+          <div class="srv-title">Класичний релакс</div>
+          <span class="srv-dur">60 / 90 хв</span>
+          <p class="srv-desc">
+            Глибоке розслаблення кожного м'яза. Ароматичні олії та плавні
+            техніки знімають напругу накопиченого стресу й повертають легкість
+            тілу.
+          </p>
+          <span class="srv-price-preview">від 800 грн</span>
         </div>
-        <p class="review-text">Масаж гарячим камінням — це щось особливе. Дмитро — справжній майстер своєї справи. Атмосфера салону занурює в розслаблення ще з порогу. Рекомендую всім, хто шукає справжній преміум-відпочинок.</p>
-        <div class="review-author">
-          <img class="review-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Відгук клієнта Олексія">
-          <div class="review-info">
-            <div class="review-name">Олексій Бойко</div>
-            <div class="review-date">Лютий 2026</div>
+        <div class="srv" onclick="openService(1)" style="cursor: none">
+          <div class="srv-n">02</div>
+          <div class="srv-title">Тайський ритуал</div>
+          <span class="srv-dur">90 / 120 хв</span>
+          <p class="srv-desc">
+            Стародавня техніка, що поєднує акупресуру та розтяжку. Відновлює
+            енергетичний баланс і дарує відчуття абсолютної свободи.
+          </p>
+          <span class="srv-price-preview">від 1200 грн</span>
+        </div>
+        <div class="srv" onclick="openService(2)" style="cursor: none">
+          <div class="srv-n">03</div>
+          <div class="srv-title">Масаж гарячим камінням</div>
+          <span class="srv-dur">75 / 105 хв</span>
+          <p class="srv-desc">
+            Базальтові камені, прогріті до ідеальної температури, проникають у
+            найглибші шари м'язів. Тепло зцілює, а душа знаходить спокій.
+          </p>
+          <span class="srv-price-preview">від 1400 грн</span>
+        </div>
+      </div>
+    </div>
+    <!-- /services-wrapper -->
+
+    <!-- ══ SERVICE PANEL ══ -->
+    <div
+      class="srv-panel-bg"
+      id="srvPanelBg"
+      onclick="handlePanelBgClick(event)"
+    >
+      <div class="srv-panel" id="srvPanel">
+        <button class="sp-close" onclick="closeService()">✕</button>
+
+        <!-- GALLERY -->
+        <div class="sp-gallery" id="spGallery">
+          <div class="sp-img active" id="spImg0"></div>
+          <div class="sp-img" id="spImg1"></div>
+          <div class="sp-img" id="spImg2"></div>
+          <button class="sp-nav-btn sp-nav-prev" onclick="spPrev()">
+            &#8592;
+          </button>
+          <button class="sp-nav-btn sp-nav-next" onclick="spNext()">
+            &#8594;
+          </button>
+          <div class="sp-thumbs" id="spThumbs"></div>
+        </div>
+
+        <!-- INFO -->
+        <div class="sp-info">
+          <div class="sp-tag" id="spTag"></div>
+          <p class="sp-title" id="spTitle"></p>
+          <span class="sp-dur-badge" id="spDur"></span>
+          <p class="sp-desc" id="spDesc"></p>
+          <div class="sp-includes">
+            <div class="sp-includes-title">Що включено</div>
+            <div id="spIncludes"></div>
+          </div>
+          <div class="sp-price-row">
+            <span class="sp-price-lbl">Вартість від</span>
+            <span class="sp-price" id="spPrice"></span>
+            <span class="sp-price-sub" id="spPriceSub"></span>
+          </div>
+          <button class="btn-book-panel" onclick="openModalFromPanel()">
+            <svg viewBox="0 0 24 24" width="14" fill="currentColor">
+              <path
+                d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+              />
+            </svg>
+            Забронювати сеанс
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ MASTERS ══ -->
+    <section class="masters-section">
+      <div class="section-header">
+        <div class="section-eyebrow">Наша команда</div>
+        <h2 class="section-title">Майстри салону</h2>
+      </div>
+
+      <div class="carousel-container" id="masters">
+        <button class="nav-arrow left">&#8249;</button>
+        <div class="carousel-track">
+          <div class="card" data-index="0">
+            <img
+              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=3687&auto=format&fit=crop"
+              alt="Майстер масажу Олена Мороз"
+            />
+          </div>
+          <div class="card" data-index="1">
+            <img
+              src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=3870&auto=format&fit=crop"
+              alt="Майстер масажу Дмитро Карпенко"
+            />
+          </div>
+          <div class="card" data-index="2">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&auto=format&fit=crop&q=60"
+              alt="Майстер масажу Марія Ткаченко"
+            />
+          </div>
+          <div class="card" data-index="3">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&auto=format&fit=crop&q=60"
+              alt="Майстер масажу Олена Кунець"
+            />
+          </div>
+          <div class="card" data-index="4">
+            <img
+              src="https://images.unsplash.com/photo-1655249481446-25d575f1c054?w=900&auto=format&fit=crop&q=60"
+              alt="Майстер масажу Світлана Когунь"
+            />
+          </div>
+          <div class="card" data-index="5">
+            <img
+              src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=3687&auto=format&fit=crop"
+              alt="Майстер масажу Андрій Бондаренко"
+            />
           </div>
         </div>
+        <button class="nav-arrow right">&#8250;</button>
       </div>
 
-      <!-- REVIEW 3 -->
-      <div class="review-card">
-        <div class="review-stars">
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="review-text">Відвідую AURA вже третій рік поспіль. Класичний релакс від Марії — мій особистий ритуал відновлення. Тут завжди ідеальна чистота, ненав'язлива музика і щира увага до кожного клієнта.</p>
-        <div class="review-author">
-          <img class="review-avatar" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80" alt="Відгук клієнтки Катерини">
-          <div class="review-info">
-            <div class="review-name">Катерина Дяченко</div>
-            <div class="review-date">Січень 2026</div>
-          </div>
-        </div>
+      <div class="member-info">
+        <h3 class="member-name" id="memberName">Олена Мороз</h3>
+        <p class="member-role" id="memberRole">Тайський масаж</p>
       </div>
 
-      <!-- REVIEW 4 -->
-      <div class="review-card">
-        <div class="review-stars">
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="review-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="review-text">Подарували сертифікат дружині на день народження. Вона була в захваті! Каже, що це найкращий подарунок за роки. Ароматерапія з Андрієм — неймовірно. Вже плануємо прийти разом.</p>
-        <div class="review-author">
-          <img class="review-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Відгук клієнта Сергія">
-          <div class="review-info">
-            <div class="review-name">Сергій Коваль</div>
-            <div class="review-date">Грудень 2025</div>
-          </div>
-        </div>
+      <div class="dots" id="carouselDots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+        <div class="dot" data-index="4"></div>
+        <div class="dot" data-index="5"></div>
+      </div>
+    </section>
+
+    <!-- ══ CERTIFICATES ══ -->
+    <section class="certs-section" id="certificates">
+      <div class="section-header">
+        <div class="section-eyebrow">Якість підтверджена</div>
+        <h2 class="section-title">Сертифікати майстрів</h2>
       </div>
 
-    </div>
-  </div>
-
-  <div class="reviews-controls">
-    <button class="reviews-btn" id="revPrev" aria-label="Попередній">&#8592;</button>
-    <div class="reviews-dots" id="revDots">
-      <div class="reviews-dot active"></div>
-      <div class="reviews-dot"></div>
-      <div class="reviews-dot"></div>
-      <div class="reviews-dot"></div>
-    </div>
-    <button class="reviews-btn" id="revNext" aria-label="Наступний">&#8594;</button>
-  </div>
-
-  <!-- ADD REVIEW -->
-  <div style="text-align:center;">
-    <button class="review-add-btn" onclick="toggleReviewForm()">
-      + Залишити відгук
-    </button>
-  </div>
-
-  <div class="review-form-wrap" id="reviewFormWrap">
-    <button class="review-form-close" onclick="toggleReviewForm()" aria-label="Закрити форму">&#10005;</button>
-    <div class="review-form-row">
-      <div class="field">
-        <label>Ваше ім'я</label>
-        <input type="text" id="rvName" placeholder="Наприклад: Олена">
-      </div>
-      <div class="field">
-        <label>Дата відвідування</label>
-        <input type="text" id="rvDate" placeholder="Наприклад: Березень 2026">
-      </div>
-    </div>
-    <div class="field">
-      <label>Оцінка</label>
-      <div class="review-stars-pick" id="starPicker">
-        <svg viewBox="0 0 24 24" onclick="pickStar(1)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" onclick="pickStar(2)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" onclick="pickStar(3)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" onclick="pickStar(4)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" onclick="pickStar(5)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-    </div>
-    <div class="field">
-      <label>Ваш відгук</label>
-      <textarea id="rvText" placeholder="Розкажіть про свій досвід..."></textarea>
-    </div>
-    <button class="btn-submit-review" onclick="submitReview()">Надіслати відгук</button>
-    <div class="field-error" id="rvError" style="margin-top:.8rem;"></div>
-  </div>
-
-  <!-- backdrop click to close form - handled via JS document listener -->
-</section>
-
-<!-- ══ BOTTOM CTA ══ -->
-<div class="bottom-cta">
-  <div class="tag" style="justify-content:center;display:inline-flex;">Запишіться вже зараз</div>
-  <h2>Ваш ідеальний відпочинок<br>починається тут</h2>
-  <button class="btn-book" style="margin:0 auto;display:inline-flex;" onclick="openModal()">
-    <svg viewBox="0 0 24 24" width="15" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-    <span>Забронювати сеанс</span>
-  </button>
-</div>
-
-<!-- ══ FOOTER ══ -->
-<footer class="site-footer">
-  <div class="footer-inner">
-
-    <!-- LOGO COL -->
-    <div class="ft-logo-col">
-      <div class="ft-logo">
-        <div class="ft-logo-icon">◈</div>
-        AURA
-      </div>
-      <p class="ft-tagline">Преміум масажний салон<br>у серці Києва</p>
-      <div class="ft-socials">
-        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="ft-social" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="ft-social" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="ft-social" aria-label="Telegram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- SERVICES COL -->
-    <div class="ft-col">
-      <div class="ft-col-title">Послуги</div>
-      <ul class="ft-links">
-        <li><a href="#services" onclick="smoothTo('services')">Класичний релакс</a></li>
-        <li><a href="#services" onclick="smoothTo('services')">Тайський ритуал</a></li>
-        <li><a href="#services" onclick="smoothTo('services')">Масаж гарячим камінням</a></li>
-        <li><a href="#services" onclick="smoothTo('services')">Ароматерапія</a></li>
-        <li><a href="#services" onclick="smoothTo('services')">Спортивний масаж</a></li>
-        <li><a href="#services" onclick="smoothTo('services')">Масаж обличчя</a></li>
-      </ul>
-    </div>
-
-    <!-- MASTERS COL -->
-    <div class="ft-col">
-      <div class="ft-col-title">Майстри</div>
-      <ul class="ft-links">
-        <li><a href="#masters" onclick="smoothTo('masters')">Олена Мороз</a></li>
-        <li><a href="#masters" onclick="smoothTo('masters')">Дмитро Карпенко</a></li>
-        <li><a href="#masters" onclick="smoothTo('masters')">Марія Ткаченко</a></li>
-        <li><a href="#masters" onclick="smoothTo('masters')">Андрій Бондар</a></li>
-        <li><a href="#masters" onclick="smoothTo('masters')">Олена Кунець</a></li>
-        <li><a href="#masters" onclick="smoothTo('masters')">Світлана Когунь</a></li>
-        <li><a href="#certificates" onclick="smoothTo('certificates')">Наші сертифікати</a></li>
-      </ul>
-    </div>
-
-    <!-- CONTACT COL -->
-    <div class="ft-col">
-      <div class="ft-col-title">Контакти</div>
-      <ul class="ft-contacts">
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1l-2.2 2.2z"/></svg>
-          <a href="#contacts" onclick="smoothTo('contacts')" style="color:inherit;text-decoration:none;">+38 (099) 123-45-67</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <a href="mailto:aura_spa@gmaile.com" style="color:inherit;text-decoration:none;" data-cfemail="68091d1a09461b1809280f05090104460b0705">aura_spa&#64;gmail.com</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
-          <a href="#" onclick="openMap();return false;" style="color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(200,151,58,.35);">вул. Золотоворітська, 5, Київ</a>
-        </li> 
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="ft-bottom">
-    <span>© 2026 AURA SPA. Всі права захищені.</span>
-    <div class="ft-bottom-links">
-      <a href="#https://www.unian.ua/static/policy">Політика конфіденційності</a>
-      <span class="ft-dot">✦</span>
-      <a href="#https://www.unian.ua/static/siterules">Умови використання</a>
-    </div>
-  </div>
-</footer>
-
-<!-- ══ MODAL ══ -->
-<div class="modal-bg" id="modalBg" onclick="handleBgClick(event)">
-  <div class="modal" id="modal">
-    <div class="modal-corners"></div>
-    <button class="modal-close" onclick="closeModal()">&#10005;</button>
-
-    <!-- FORM VIEW -->
-    <div id="formView">
-      <div class="form-inner-pad" style="padding-top:2.8rem;">
-        <div class="modal-tag">Бронювання сеансу</div>
-        <h2 class="modal-title">Залишіть свої<br>контакти</h2>
-        <p class="modal-sub">Наш адміністратор зв'яжеться з вами протягом 15 хвилин та підбере зручний час.</p>
-        <div class="modal-divider"></div>
-
-        <!-- ІМ'Я -->
-        <div class="field">
-          <label for="bkName"><span class="req-dot"></span>Ваше ім'я</label>
-          <input type="text" id="bkName" placeholder="Наприклад: Олена" autocomplete="given-name">
-          <div class="field-bar"></div>
-          <div class="bk-field-error" id="bkNameErr">Будь ласка, введiть ваше iм'я</div>
-        </div>
-
-        <!-- ТЕЛЕФОН -->
-        <div class="field">
-          <label for="bkPhone"><span class="req-dot"></span>Номер телефону</label>
-          <input type="tel" id="bkPhone" placeholder="+38 (0__) ___-__-__" autocomplete="tel">
-          <div class="field-bar"></div>
-          <div class="bk-field-error" id="bkPhoneErr">Введiть коректний номер: +38 099 123 45 67</div>
-        </div>
-
-        <!-- ПОСЛУГА -->
-        <div class="field">
-          <label for="bkService">Послуга <span style="color:var(--muted);font-size:.9em;text-transform:none;letter-spacing:0;">(за бажанням)</span></label>
-          <div class="select-wrap">
-            <select id="bkService">
-              <option value="" disabled selected>Оберіть послугу...</option>
-              <option value="classic">Класичний релакс — 60/90 хв — від 800 грн</option>
-              <option value="thai">Тайський ритуал — 90/120 хв — від 1200 грн</option>
-              <option value="stones">Масаж гарячим камінням — 75/105 хв — від 1400 грн</option>
-              <option value="aroma">Ароматерапія — 60 хв — від 900 грн</option>
-              <option value="sport">Спортивний масаж — 60/90 хв — від 1000 грн</option>
-              <option value="face">Масаж обличчя — 45 хв — від 700 грн</option>
-              <option value="other">Інше — уточнимо при дзвінку</option>
-            </select>
-            <div class="field-bar"></div>
+      <div class="certs-grid">
+        <div class="cert-card" onclick="openCert(this)">
+          <div class="cert-corner"></div>
+          <img
+            class="cert-img"
+            src="https://masmaster.com.ua/wp-content/uploads/2018/05/Massage-s-new-840.jpg"
+            alt="Сертифікат з тайського масажу — Олена Мороз"
+          />
+          <div class="cert-caption">
+            <div class="cert-name">Олена Мороз</div>
+            <div class="cert-sub">Тайський масаж · Бангкок, 2022</div>
           </div>
         </div>
 
-        <!-- КАЛЕНДАР -->
-        <div class="bk-cal-section">
-          <div class="bk-cal-header">
-            <div class="bk-cal-title" id="bkCalTitle"></div>
-            <div class="bk-cal-nav">
-              <button class="bk-cal-btn" id="bkCalPrev">&#8249;</button>
-              <button class="bk-cal-btn" id="bkCalNext">&#8250;</button>
+        <div class="cert-card" onclick="openCert(this)">
+          <div class="cert-corner"></div>
+          <img
+            class="cert-img"
+            src="https://masaj.sv.net.ua/wp-content/uploads/2019/07/podarunkovij-sertifikat.jpg"
+            alt="Сертифікат з класичного масажу — Дмитро Карпенко"
+          />
+          <div class="cert-caption">
+            <div class="cert-name">Дмитро Карпенко</div>
+            <div class="cert-sub">Класичний масаж · Київ, 2021</div>
+          </div>
+        </div>
+
+        <div class="cert-card" onclick="openCert(this)">
+          <div class="cert-corner"></div>
+          <img
+            class="cert-img"
+            src="https://kc.pamu.com.ua/wp-content/uploads/2023/12/%D0%A1%D0%B5%D1%80%D1%82%D0%B8%D1%84%D1%96%D0%BA%D0%B0%D1%82-116-1-745x1024.jpg"
+            alt="Сертифікат з масажу гарячим камінням — Марія Ткаченко"
+          />
+          <div class="cert-caption">
+            <div class="cert-name">Марія Ткаченко</div>
+            <div class="cert-sub">Гарячі камені · Відень, 2023</div>
+          </div>
+        </div>
+
+        <div class="cert-card" onclick="openCert(this)">
+          <div class="cert-corner"></div>
+          <img
+            class="cert-img"
+            src="https://minio.kyivcity.gov.ua/kyivcity/imported_content/64d1aae93ca16.jpg"
+            alt="Сертифікат з ароматерапії — Андрій Бондар"
+          />
+          <div class="cert-caption">
+            <div class="cert-name">Андрій Бондар</div>
+            <div class="cert-sub">Ароматерапія · Лондон, 2023</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATE ZOOM OVERLAY -->
+    <div class="cert-overlay" id="certOverlay" onclick="closeCert()">
+      <button class="cert-overlay-close" onclick="closeCert()">&#10005;</button>
+      <img src="" alt="Сертифікат" id="certZoomImg" />
+    </div>
+
+    <!-- ══ REVIEWS ══ -->
+    <section class="reviews-section" id="reviews">
+      <div class="section-header">
+        <div class="section-eyebrow">Думки клієнтів</div>
+        <h2 class="section-title">Відгуки</h2>
+      </div>
+
+      <div class="reviews-slider-wrap">
+        <div class="reviews-track" id="reviewsTrack">
+          <!-- REVIEW 1 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="review-text">
+              Неймовірний досвід! Після тайського масажу від Олени відчула себе
+              наче заново народженою. Напруга, яку накопичувала місяцями, зникла
+              за одну годину. Повернусь обовязково.
+            </p>
+            <div class="review-author">
+              <img
+                class="review-avatar"
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80"
+                alt="Відгук клієнтки Юлії"
+              />
+              <div class="review-info">
+                <div class="review-name">Юлія Петренко</div>
+                <div class="review-date">Березень 2026</div>
+              </div>
             </div>
           </div>
-          <div class="bk-cal-days-names">
-            <div class="bk-cal-day-name">Пн</div><div class="bk-cal-day-name">Вт</div>
-            <div class="bk-cal-day-name">Ср</div><div class="bk-cal-day-name">Чт</div>
-            <div class="bk-cal-day-name">Пт</div><div class="bk-cal-day-name">Сб</div>
-            <div class="bk-cal-day-name">Нд</div>
+
+          <!-- REVIEW 2 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="review-text">
+              Масаж гарячим камінням — це щось особливе. Дмитро — справжній
+              майстер своєї справи. Атмосфера салону занурює в розслаблення ще з
+              порогу. Рекомендую всім, хто шукає справжній преміум-відпочинок.
+            </p>
+            <div class="review-author">
+              <img
+                class="review-avatar"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80"
+                alt="Відгук клієнта Олексія"
+              />
+              <div class="review-info">
+                <div class="review-name">Олексій Бойко</div>
+                <div class="review-date">Лютий 2026</div>
+              </div>
+            </div>
           </div>
-          <div class="bk-cal-grid" id="bkCalGrid"></div>
-          <div class="bk-field-error" id="bkDateErr" style="margin-top:.4rem;">Будь ласка, оберіть дату</div>
-        </div>
 
-        <!-- ЧАС -->
-        <div class="bk-time-section">
-          <div class="bk-time-label">Час сеансу <span style="font-style:italic;text-transform:none;letter-spacing:0;color:var(--muted);">(за бажанням)</span></div>
-          <div id="bkTimeWrap"><div class="bk-no-date">Спочатку оберіть дату</div></div>
-        </div>
+          <!-- REVIEW 3 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="review-text">
+              Відвідую AURA вже третій рік поспіль. Класичний релакс від Марії —
+              мій особистий ритуал відновлення. Тут завжди ідеальна чистота,
+              ненав'язлива музика і щира увага до кожного клієнта.
+            </p>
+            <div class="review-author">
+              <img
+                class="review-avatar"
+                src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80"
+                alt="Відгук клієнтки Катерини"
+              />
+              <div class="review-info">
+                <div class="review-name">Катерина Дяченко</div>
+                <div class="review-date">Січень 2026</div>
+              </div>
+            </div>
+          </div>
 
-        <!-- ЗВЕДЕННЯ -->
-        <div class="bk-summary" id="bkSummary">
-          <div class="bk-summary-text" id="bkSummaryText"></div>
+          <!-- REVIEW 4 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              <svg class="review-star" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+            <p class="review-text">
+              Подарували сертифікат дружині на день народження. Вона була в
+              захваті! Каже, що це найкращий подарунок за роки. Ароматерапія з
+              Андрієм — неймовірно. Вже плануємо прийти разом.
+            </p>
+            <div class="review-author">
+              <img
+                class="review-avatar"
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80"
+                alt="Відгук клієнта Сергія"
+              />
+              <div class="review-info">
+                <div class="review-name">Сергій Коваль</div>
+                <div class="review-date">Грудень 2025</div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- КНОПКА -->
-        <button class="btn-submit" id="bkSubmitBtn" onclick="bkSubmit()">
-          <span class="bk-spinner"></span>
-          <span class="bk-btn-text">Надіслати заявку</span>
+      <div class="reviews-controls">
+        <button class="reviews-btn" id="revPrev" aria-label="Попередній">
+          &#8592;
         </button>
+        <div class="reviews-dots" id="revDots">
+          <div class="reviews-dot active"></div>
+          <div class="reviews-dot"></div>
+          <div class="reviews-dot"></div>
+          <div class="reviews-dot"></div>
+        </div>
+        <button class="reviews-btn" id="revNext" aria-label="Наступний">
+          &#8594;
+        </button>
+      </div>
 
-        <div class="modal-note">
-          <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-          Ваші дані захищені та не передаються третім особам
+      <!-- ADD REVIEW -->
+      <div style="text-align: center">
+        <button class="review-add-btn" onclick="toggleReviewForm()">
+          + Залишити відгук
+        </button>
+      </div>
+
+      <div class="review-form-wrap" id="reviewFormWrap">
+        <button
+          class="review-form-close"
+          onclick="toggleReviewForm()"
+          aria-label="Закрити форму"
+        >
+          &#10005;
+        </button>
+        <div class="review-form-row">
+          <div class="field">
+            <label>Ваше ім'я</label>
+            <input type="text" id="rvName" placeholder="Наприклад: Олена" />
+          </div>
+          <div class="field">
+            <label>Дата відвідування</label>
+            <input
+              type="text"
+              id="rvDate"
+              placeholder="Наприклад: Березень 2026"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label>Оцінка</label>
+          <div class="review-stars-pick" id="starPicker">
+            <svg viewBox="0 0 24 24" onclick="pickStar(1)">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+            <svg viewBox="0 0 24 24" onclick="pickStar(2)">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+            <svg viewBox="0 0 24 24" onclick="pickStar(3)">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+            <svg viewBox="0 0 24 24" onclick="pickStar(4)">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+            <svg viewBox="0 0 24 24" onclick="pickStar(5)">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="field">
+          <label>Ваш відгук</label>
+          <textarea
+            id="rvText"
+            placeholder="Розкажіть про свій досвід..."
+          ></textarea>
+        </div>
+        <button class="btn-submit-review" onclick="submitReview()">
+          Надіслати відгук
+        </button>
+        <div class="field-error" id="rvError" style="margin-top: 0.8rem"></div>
+      </div>
+
+      <!-- backdrop click to close form - handled via JS document listener -->
+    </section>
+
+    <!-- ══ BOTTOM CTA ══ -->
+    <div class="bottom-cta">
+      <div class="tag" style="justify-content: center; display: inline-flex">
+        Запишіться вже зараз
+      </div>
+      <h2>Ваш ідеальний відпочинок<br />починається тут</h2>
+      <button
+        class="btn-book"
+        style="margin: 0 auto; display: inline-flex"
+        onclick="openModal()"
+      >
+        <svg viewBox="0 0 24 24" width="15" fill="currentColor">
+          <path
+            d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+          />
+        </svg>
+        <span>Забронювати сеанс</span>
+      </button>
+    </div>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <!-- LOGO COL -->
+        <div class="ft-logo-col">
+          <div class="ft-logo">
+            <div class="ft-logo-icon">◈</div>
+            AURA
+          </div>
+          <p class="ft-tagline">Преміум масажний салон<br />у серці Києва</p>
+          <div class="ft-socials">
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ft-social"
+              aria-label="Instagram"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ft-social"
+              aria-label="Facebook"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://t.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ft-social"
+              aria-label="Telegram"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- SERVICES COL -->
+        <div class="ft-col">
+          <div class="ft-col-title">Послуги</div>
+          <ul class="ft-links">
+            <li>
+              <a href="#services" onclick="smoothTo('services')"
+                >Класичний релакс</a
+              >
+            </li>
+            <li>
+              <a href="#services" onclick="smoothTo('services')"
+                >Тайський ритуал</a
+              >
+            </li>
+            <li>
+              <a href="#services" onclick="smoothTo('services')"
+                >Масаж гарячим камінням</a
+              >
+            </li>
+            <li>
+              <a href="#services" onclick="smoothTo('services')"
+                >Ароматерапія</a
+              >
+            </li>
+            <li>
+              <a href="#services" onclick="smoothTo('services')"
+                >Спортивний масаж</a
+              >
+            </li>
+            <li>
+              <a href="#services" onclick="smoothTo('services')"
+                >Масаж обличчя</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- MASTERS COL -->
+        <div class="ft-col">
+          <div class="ft-col-title">Майстри</div>
+          <ul class="ft-links">
+            <li>
+              <a href="#masters" onclick="smoothTo('masters')">Олена Мороз</a>
+            </li>
+            <li>
+              <a href="#masters" onclick="smoothTo('masters')"
+                >Дмитро Карпенко</a
+              >
+            </li>
+            <li>
+              <a href="#masters" onclick="smoothTo('masters')"
+                >Марія Ткаченко</a
+              >
+            </li>
+            <li>
+              <a href="#masters" onclick="smoothTo('masters')">Андрій Бондар</a>
+            </li>
+            <li>
+              <a href="#masters" onclick="smoothTo('masters')">Олена Кунець</a>
+            </li>
+            <li>
+              <a href="#masters" onclick="smoothTo('masters')"
+                >Світлана Когунь</a
+              >
+            </li>
+            <li>
+              <a href="#certificates" onclick="smoothTo('certificates')"
+                >Наші сертифікати</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- CONTACT COL -->
+        <div class="ft-col">
+          <div class="ft-col-title">Контакти</div>
+          <ul class="ft-contacts">
+            <li>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1l-2.2 2.2z"
+                />
+              </svg>
+              <a
+                href="#contacts"
+                onclick="smoothTo('contacts')"
+                style="color: inherit; text-decoration: none"
+                >+38 (099) 123-45-67</a
+              >
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+              <a
+                href="mailto:aura_spa@gmaile.com"
+                style="color: inherit; text-decoration: none"
+                data-cfemail="68091d1a09461b1809280f05090104460b0705"
+                >aura_spa&#64;gmail.com</a
+              >
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"
+                />
+              </svg>
+              <a
+                href="#"
+                onclick="
+                  openMap();
+                  return false;
+                "
+                style="
+                  color: inherit;
+                  text-decoration: underline;
+                  text-underline-offset: 3px;
+                  text-decoration-color: rgba(200, 151, 58, 0.35);
+                "
+                >вул. Золотоворітська, 5, Київ</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ft-bottom">
+        <span>© 2026 AURA SPA. BiS. Всі права захищені.</span>
+        <div class="ft-bottom-links">
+          <a href="#https://www.unian.ua/static/policy"
+            >Політика конфіденційності</a
+          >
+          <span class="ft-dot">✦</span>
+          <a href="#https://www.unian.ua/static/siterules"
+            >Умови використання</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- ══ MODAL ══ -->
+    <div class="modal-bg" id="modalBg" onclick="handleBgClick(event)">
+      <div class="modal" id="modal">
+        <div class="modal-corners"></div>
+        <button class="modal-close" onclick="closeModal()">&#10005;</button>
+
+        <!-- FORM VIEW -->
+        <div id="formView">
+          <div class="form-inner-pad" style="padding-top: 2.8rem">
+            <div class="modal-tag">Бронювання сеансу</div>
+            <h2 class="modal-title">Залишіть свої<br />контакти</h2>
+            <p class="modal-sub">
+              Наш адміністратор зв'яжеться з вами протягом 15 хвилин та підбере
+              зручний час.
+            </p>
+            <div class="modal-divider"></div>
+
+            <!-- ІМ'Я -->
+            <div class="field">
+              <label for="bkName"><span class="req-dot"></span>Ваше ім'я</label>
+              <input
+                type="text"
+                id="bkName"
+                placeholder="Наприклад: Олена"
+                autocomplete="given-name"
+              />
+              <div class="field-bar"></div>
+              <div class="bk-field-error" id="bkNameErr">
+                Будь ласка, введiть ваше iм'я
+              </div>
+            </div>
+
+            <!-- ТЕЛЕФОН -->
+            <div class="field">
+              <label for="bkPhone"
+                ><span class="req-dot"></span>Номер телефону</label
+              >
+              <input
+                type="tel"
+                id="bkPhone"
+                placeholder="+38 (0__) ___-__-__"
+                autocomplete="tel"
+              />
+              <div class="field-bar"></div>
+              <div class="bk-field-error" id="bkPhoneErr">
+                Введiть коректний номер: +38 099 123 45 67
+              </div>
+            </div>
+
+            <!-- ПОСЛУГА -->
+            <div class="field">
+              <label for="bkService"
+                >Послуга
+                <span
+                  style="
+                    color: var(--muted);
+                    font-size: 0.9em;
+                    text-transform: none;
+                    letter-spacing: 0;
+                  "
+                  >(за бажанням)</span
+                ></label
+              >
+              <div class="select-wrap">
+                <select id="bkService">
+                  <option value="" disabled selected>Оберіть послугу...</option>
+                  <option value="classic">
+                    Класичний релакс — 60/90 хв — від 800 грн
+                  </option>
+                  <option value="thai">
+                    Тайський ритуал — 90/120 хв — від 1200 грн
+                  </option>
+                  <option value="stones">
+                    Масаж гарячим камінням — 75/105 хв — від 1400 грн
+                  </option>
+                  <option value="aroma">
+                    Ароматерапія — 60 хв — від 900 грн
+                  </option>
+                  <option value="sport">
+                    Спортивний масаж — 60/90 хв — від 1000 грн
+                  </option>
+                  <option value="face">
+                    Масаж обличчя — 45 хв — від 700 грн
+                  </option>
+                  <option value="other">Інше — уточнимо при дзвінку</option>
+                </select>
+                <div class="field-bar"></div>
+              </div>
+            </div>
+
+            <!-- КАЛЕНДАР -->
+            <div class="bk-cal-section">
+              <div class="bk-cal-header">
+                <div class="bk-cal-title" id="bkCalTitle"></div>
+                <div class="bk-cal-nav">
+                  <button class="bk-cal-btn" id="bkCalPrev">&#8249;</button>
+                  <button class="bk-cal-btn" id="bkCalNext">&#8250;</button>
+                </div>
+              </div>
+              <div class="bk-cal-days-names">
+                <div class="bk-cal-day-name">Пн</div>
+                <div class="bk-cal-day-name">Вт</div>
+                <div class="bk-cal-day-name">Ср</div>
+                <div class="bk-cal-day-name">Чт</div>
+                <div class="bk-cal-day-name">Пт</div>
+                <div class="bk-cal-day-name">Сб</div>
+                <div class="bk-cal-day-name">Нд</div>
+              </div>
+              <div class="bk-cal-grid" id="bkCalGrid"></div>
+              <div
+                class="bk-field-error"
+                id="bkDateErr"
+                style="margin-top: 0.4rem"
+              >
+                Будь ласка, оберіть дату
+              </div>
+            </div>
+
+            <!-- ЧАС -->
+            <div class="bk-time-section">
+              <div class="bk-time-label">
+                Час сеансу
+                <span
+                  style="
+                    font-style: italic;
+                    text-transform: none;
+                    letter-spacing: 0;
+                    color: var(--muted);
+                  "
+                  >(за бажанням)</span
+                >
+              </div>
+              <div id="bkTimeWrap">
+                <div class="bk-no-date">Спочатку оберіть дату</div>
+              </div>
+            </div>
+
+            <!-- ЗВЕДЕННЯ -->
+            <div class="bk-summary" id="bkSummary">
+              <div class="bk-summary-text" id="bkSummaryText"></div>
+            </div>
+
+            <!-- КНОПКА -->
+            <button class="btn-submit" id="bkSubmitBtn" onclick="bkSubmit()">
+              <span class="bk-spinner"></span>
+              <span class="bk-btn-text">Надіслати заявку</span>
+            </button>
+
+            <div class="modal-note">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+                />
+              </svg>
+              Ваші дані захищені та не передаються третім особам
+            </div>
+          </div>
+        </div>
+
+        <!-- SUCCESS VIEW -->
+        <div class="modal-success" id="successView">
+          <div class="success-icon">&#10003;</div>
+          <h3>Дякуємо!</h3>
+          <p>
+            Вашу заявку отримано.<br />Адміністратор зв'яжеться з вами<br />найближчим
+            часом.
+          </p>
+          <div class="bk-success-detail" id="bkSuccessDetail"></div>
+        </div>
+        <div class="modal-corners-bottom"></div>
+      </div>
+    </div>
+
+    <!-- <script src="script-salon.js"></script> -->
+
+    <!-- ══ MAP MODAL ══ -->
+    <div class="map-modal-bg" id="mapModalBg" onclick="handleMapBgClick(event)">
+      <div class="map-modal" id="mapModal">
+        <div class="map-modal-header">
+          <div class="map-modal-title">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"
+              />
+            </svg>
+            <div>
+              <div id="mapSalonName">AURA SPA</div>
+              <div class="map-modal-addr" id="mapSalonAddr">
+                вул. Золотоворітська, 5, Київ
+              </div>
+            </div>
+          </div>
+          <button
+            class="map-modal-close"
+            onclick="closeMap()"
+            aria-label="Закрити карту"
+          >
+            &#10005;
+          </button>
+        </div>
+
+        <iframe
+          id="mapIframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2189.900668557593!2d30.512074787314674!3d50.449492966240925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf0075ea368b%3A0xeea22a4d2fdba6dd!2z0JfQvtC70L7RgtGWINCy0L7RgNC-0YLQsA!5e1!3m2!1suk!2sua!4v1779455773860!5m2!1suk!2sua"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Карта розташування салону AURA SPA"
+        >
+        </iframe>
+
+        <div class="map-modal-footer">
+          <a
+            class="map-open-gmaps"
+            id="mapGmapsLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+              />
+            </svg>
+            Відкрити у Google Maps
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- SUCCESS VIEW -->
-    <div class="modal-success" id="successView">
-      <div class="success-icon">&#10003;</div>
-      <h3>Дякуємо!</h3>
-      <p>Вашу заявку отримано.<br>Адміністратор зв'яжеться з вами<br>найближчим часом.</p>
-      <div class="bk-success-detail" id="bkSuccessDetail"></div>
-    </div>
-    <div class="modal-corners-bottom"></div>
-  </div>
-</div>
+    <!-- скрипт для швидкого завантаження відео файлів -->
+    <script type="speculstionrules">
+      {
+        "prerender": [{
+          "where": {
+            "and": [
+             { "href_matches": "/*"},
+             { "not": { "href_mathes": "/logout"}},
+             { "not": { "selector_mathes": "[rel~=nofollow]" } },
+             { "not": { "selector_mathes": "[data-no-prerender]" } }
+            ]
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
-<script src="script-salon.js"></script>
-
-<!-- ══ MAP MODAL ══ -->
-<div class="map-modal-bg" id="mapModalBg" onclick="handleMapBgClick(event)">
-  <div class="map-modal" id="mapModal">
-
-    <div class="map-modal-header">
-      <div class="map-modal-title">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
-        <div>
-          <div id="mapSalonName">AURA SPA</div>
-          <div class="map-modal-addr" id="mapSalonAddr">вул. Золотоворітська, 5, Київ</div>
-        </div>
-      </div>
-      <button class="map-modal-close" onclick="closeMap()" aria-label="Закрити карту">&#10005;</button>
-    </div>
-
-    <iframe
-      id="mapIframe"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2189.900668557593!2d30.512074787314674!3d50.449492966240925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf0075ea368b%3A0xeea22a4d2fdba6dd!2z0JfQvtC70L7RgtGWINCy0L7RgNC-0YLQsA!5e1!3m2!1suk!2sua!4v1779455773860!5m2!1suk!2sua"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Карта розташування салону AURA SPA">
-    </iframe>
-
-    <div class="map-modal-footer">
-      <a class="map-open-gmaps" id="mapGmapsLink" href="#" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-        Відкрити у Google Maps
-      </a>
-    </div>
-
-  </div>
-</div>
-
-<script src="script-salon.js"></script>
-
-</body>
+    <script src="script-salon.js"></script>
+  </body>
 </html>

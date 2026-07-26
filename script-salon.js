@@ -1,5 +1,3 @@
-"use strict";
-
   /* ── CURSOR (тільки для пристроїв з мишею) ── */
   const isTouch = window.matchMedia('(pointer: coarse)').matches;
   const cur = document.getElementById('cursor');
